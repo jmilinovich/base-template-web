@@ -1,0 +1,41 @@
+{
+  "$schema": "https://github.com/jmilinovich/base-template-web/blob/main/design-tokens.schema.json",
+  "$comment": "The 5-group canonical schema for design tokens. Required by /mili:fork. Each variant emits this shape; fork blend operates on the named groups.",
+
+  "type": {
+    "stack": {
+      "sans": "Inter, ui-sans-serif, system-ui",
+      "serif": "Source Serif 4, ui-serif, Georgia",
+      "mono": "JetBrains Mono, ui-monospace"
+    },
+    "scale": { "base": "16px", "ratio": 1.25 },
+    "tracking": { "display": "-0.02em", "body": "0" },
+    "weights": { "display": 600, "body": 400, "strong": 700 }
+  },
+
+  "palette": {
+    "ink": { "light": "#0a0a0a", "dark": "#fafafa" },
+    "paper": { "light": "#ffffff", "dark": "#0a0a0a" },
+    "muted": { "light": "#737373", "dark": "#a3a3a3" },
+    "accent": "#dc2626",
+    "signal": "#dc2626"
+  },
+
+  "space": {
+    "base": "8px",
+    "rhythm": "balanced",
+    "gutter": "24px"
+  },
+
+  "motion": {
+    "easing": "cubic-bezier(0.16, 1, 0.3, 1)",
+    "durations": { "instant": "100ms", "quick": "200ms", "deliberate": "400ms" },
+    "static-by-default": ["color", "type", "border"]
+  },
+
+  "surface": {
+    "density": "balanced",
+    "borders": "subtle",
+    "shadows": "none"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Design Tokens",
+  "description": "Canonical 5-group design token schema. Used by /mili:fork: each variant emits this shape; blend operations merge named groups across variants.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "palette", "space", "motion", "surface"],
+  "properties": {
+    "$schema":  { "type": "string" },
+    "$comment": { "type": "string" },
+
+    "type": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stack", "scale", "tracking", "weights"],
+      "properties": {
+        "stack": {
+          "type": "object",
+          "required": ["sans", "serif", "mono"],
+          "properties": {
+            "sans":  { "type": "string" },
+            "serif": { "type": "string" },
+            "mono":  { "type": "string" }
+          }
+        },
+        "scale": {
+          "type": "object",
+          "required": ["base", "ratio"],
+          "properties": {
+            "base":  { "type": "string" },
+            "ratio": { "type": "number" }
+          }
+        },
+        "tracking": {
+          "type": "object",
+          "required": ["display", "body"],
+          "properties": {
+            "display": { "type": "string" },
+            "body":    { "type": "string" }
+          }
+        },
+        "weights": {
+          "type": "object",
+          "required": ["display", "body"],
+          "properties": {
+            "display": { "type": "integer" },
+            "body":    { "type": "integer" },
+            "strong":  { "type": "integer" }
+          }
+        }
+      }
+    },
+
+    "palette": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ink", "paper", "muted", "accent"],
+      "properties": {
+        "ink":    { "$ref": "#/$defs/lightDarkColor" },
+        "paper":  { "$ref": "#/$defs/lightDarkColor" },
+        "muted":  { "$ref": "#/$defs/lightDarkColor" },
+        "accent": { "type": "string" },
+        "signal": { "type": "string" }
+      }
+    },
+
+    "space": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["base", "rhythm"],
+      "properties": {
+        "base":   { "type": "string" },
+        "rhythm": { "enum": ["tight", "balanced", "spacious"] },
+        "gutter": { "type": "string" }
+      }
+    },
+
+    "motion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["easing", "durations"],
+      "properties": {
+        "easing":            { "type": "string" },
+        "durations": {
+          "type": "object",
+          "required": ["instant", "quick", "deliberate"],
+          "properties": {
+            "instant":    { "type": "string" },
+            "quick":      { "type": "string" },
+            "deliberate": { "type": "string" }
+          }
+        },
+        "static-by-default": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+
+    "surface": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["density", "borders", "shadows"],
+      "properties": {
+        "density": { "enum": ["compact", "balanced", "spacious"] },
+        "borders": { "enum": ["subtle", "structural", "none"] },
+        "shadows": { "enum": ["none", "soft", "lifted"] }
+      }
+    }
+  },
+
+  "$defs": {
+    "lightDarkColor": {
+      "type": "object",
+      "required": ["light", "dark"],
+      "properties": {
+        "light": { "type": "string" },
+        "dark":  { "type": "string" }
+      }
+    }
+  }
+}

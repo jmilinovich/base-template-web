@@ -2,6 +2,8 @@
 
 > The aesthetic and experience covenant. Decide the *feel* before the build, so every component, page, and interaction can be checked against it.
 
+> Machine-readable form: `design-tokens.json` at the repo root (see `design-tokens.example.json` for the canonical 5-group schema: `type`, `palette`, `space`, `motion`, `surface`). `/mili:fork` operates on this file; blends merge named groups across variants. Keep prose and tokens in sync — the prose explains the *why*, the tokens encode the *what*.
+
 ## One-line thesis
 
 This product feels like ___ .
